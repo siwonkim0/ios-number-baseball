@@ -1,20 +1,22 @@
 import Foundation
 
 let computerNumbers = generateRandomNumbers()
-var chancesLeft = 9
-
-var userInputNumbers: [Int] = generateRandomNumbers()
+var chancesLeft = 8
 
 func generateRandomNumbers() -> [Int] {
     var result = Set<Int>()
-    
     while result.count < 3 {
-        let randomNumber = Int.random(in: 0...9)
-        
-        result.contains(randomNumber) ? () : ({ result.insert(randomNumber) }())
+        let randomNumber = Int.random(in: 1...9)
+        checkAndInsert(randomNumber, into: &result)
     }
     
     return Array(result)
+}
+
+func checkAndInsert(_ randomNumber: Int, into result: inout Set<Int>) {
+    if result.contains(randomNumber) {
+        result.insert(randomNumber)
+    }
 }
 
 func compareComputerNumbers(withUserNumbers userNumbers: [Int]) -> [Int] {
@@ -32,7 +34,6 @@ func compareComputerNumbers(withUserNumbers userNumbers: [Int]) -> [Int] {
     ball -= strike
     
     return [ball, strike]
-    
 }
 
 func startGame() {
@@ -40,7 +41,7 @@ func startGame() {
         let userNumbers = generateRandomNumbers()
         let result = compareComputerNumbers(withUserNumbers: userNumbers)
         print("임의의 수 : \(userNumbers[0]) \(userNumbers[1]) \(userNumbers[2])")
-        print("\(result[1]) 스트라이크, \(result[0]) 볼 ")
+        print("\(result[1]) 스트라이크, \(result[0]) 볼")
         print("남은 기회 : \(chancesLeft)")
         chancesLeft -= 1
     }
