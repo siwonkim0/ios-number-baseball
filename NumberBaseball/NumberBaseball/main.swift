@@ -14,7 +14,7 @@ func generateRandomNumbers() -> [Int] {
 }
 
 func checkAndInsert(_ randomNumber: Int, into result: inout Set<Int>) {
-    if result.contains(randomNumber) {
+    if !result.contains(randomNumber) {
         result.insert(randomNumber)
     }
 }
@@ -45,6 +45,8 @@ func startGame() {
         print("남은 기회 : \(chancesLeft)")
         chancesLeft -= 1
     }
+    print("컴퓨터 승리...!")
+    
 }
 
 startGame()
