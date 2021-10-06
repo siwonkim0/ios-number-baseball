@@ -31,15 +31,20 @@ func compareComputerNumbers(withUserNumbers userNumbers: [Int]) -> [Int] {
     
     ball -= strike
     
-    print("임의의 수 : \(userNumbers[0]) \(userNumbers[1]) \(userNumbers[2])")
-    print("남은 기회 : \(chancesLeft)")
     return [ball, strike]
     
 }
 
-
-while chancesLeft > 0 {
-    let result = compareComputerNumbers(withUserNumbers: generateRandomNumbers())
-    print("\(result[1]) 스트라이크, \(result[0]) 볼 ")
-    chancesLeft -= 1
+func startGame() {
+    while chancesLeft >= 0 {
+        let userNumbers = generateRandomNumbers()
+        let result = compareComputerNumbers(withUserNumbers: userNumbers)
+        print("임의의 수 : \(userNumbers[0]) \(userNumbers[1]) \(userNumbers[2])")
+        print("\(result[1]) 스트라이크, \(result[0]) 볼 ")
+        print("남은 기회 : \(chancesLeft)")
+        chancesLeft -= 1
+    }
 }
+
+startGame()
+
