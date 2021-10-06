@@ -19,4 +19,19 @@ func generateRandomNumbers() -> [Int] {
     return result
 }
 
-print(generateRandomNumbers())
+func compareComputerNumbers(withUserNumbers userNumbers: [Int]) -> [Int] {
+    var ball = 0
+    var strike = 0
+    
+    for i in 0...2 {
+        strike = (computerNumbers[i] == userNumbers[i] ? strike + 1 : strike)
+    }
+    
+    for userNumber in userNumbers {
+        ball = (computerNumbers.contains(userNumber)) ? ball + 1 : ball
+    }
+    
+    ball -= strike
+    
+    return [ball, strike]
+}
