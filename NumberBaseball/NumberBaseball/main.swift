@@ -6,17 +6,15 @@ var chancesLeft = 9
 var userInputNumbers: [Int] = generateRandomNumbers()
 
 func generateRandomNumbers() -> [Int] {
-    var result: [Int] = []
-
+    var result = Set<Int>()
+    
     while result.count < 3 {
         let randomNumber = Int.random(in: 0...9)
         
-        if !result.contains(randomNumber) {
-            result.append(randomNumber)
-        }
+        result.contains(randomNumber) ? () : ({ result.insert(randomNumber) }())
     }
     
-    return result
+    return Array(result)
 }
 
 func compareComputerNumbers(withUserNumbers userNumbers: [Int]) -> [Int] {
