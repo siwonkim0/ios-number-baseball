@@ -1,10 +1,11 @@
-//
-//  NumberBaseball - main.swift
-//  Created by yagom. 
-//  Copyright © yagom academy. All rights reserved.
-// 
-
 import Foundation
 
-print("Hello, World!")
+let computerNumbers = generateRandomNumbers()
+var chancesLeft = 9
+
+var userInputNumbers: [Int] = generateRandomNumbers()
+
+func generateRandomNumbers() -> [Int] {
+    return []
+}
 
