@@ -43,10 +43,21 @@ func startGame() {
         print("임의의 수 : \(userNumbers[0]) \(userNumbers[1]) \(userNumbers[2])")
         print("\(result[1]) 스트라이크, \(result[0]) 볼")
         print("남은 기회 : \(chancesLeft)")
+        
+        if result[1] == 3 {
+            print("사용자 승리...!")
+            return
+        }
+        
         chancesLeft -= 1
     }
     print("컴퓨터 승리...!")
-    
+}
+
+func showResult(using strike: Int){
+    if strike == 3 {
+        print("사용자 승리...!")
+    }
 }
 
 startGame()
